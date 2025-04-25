@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pixel Love</title>
+  <style>
+    body {
+      background-color: #fce7f3;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
+    .container {
+      margin-top: 40px;
+    }
+    .chat-bubble, .next-btn {
+      display: inline-block;
+      background-color: #fda4af;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 18px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .chat-bubble a {
+      text-decoration: none;
+      color: #000;
+    }
+    .hidden {
+      display: none;
+    }
+    img.pixel {
+      image-rendering: pixelated;
+      width: 200px;
+    }
+    .cats {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .cats img {
+      width: 100px;
+      height: auto;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="slide1">
+      <div class="chat-bubble">I love you, ksyu!</div>
+      <div class="next-btn" onclick="nextSlide()">Next</div>
+    </div>
+
+    <div id="slide2" class="hidden">
+      <img src="images/cinnamoroll.jpg" alt="Cinnamoroll" class="pixel" />
+      <div class="chat-bubble">did u eat me too much ? did u like cinnamons ?</div>
+      <div class="next-btn" onclick="nextSlide()">Next</div>
+    </div>
+
+    <div id="slide3" class="hidden">
+      <h2>Choose Your Cat Companion</h2>
+      <div class="cats">
+        <img src="images/cat1.png" onclick="chooseCat(this)">
+        <img src="images/cat2.png" onclick="chooseCat(this)">
+        <img src="images/cat3.png" onclick="chooseCat(this)">
+        <img src="images/cat4.png" onclick="chooseCat(this)">
+      </div>
+      <div id="catResponse" class="chat-bubble hidden">yes i will be your companion</div>
+    </div>
+
+    <div class="chat-bubble">
+      <a href="https://discord.gg/ztbzqjtq" target="_blank">Join our Discord 💌</a>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    function nextSlide() {
+      document.getElementById(`slide${currentSlide}`).classList.add("hidden");
+      currentSlide++;
+      document.getElementById(`slide${currentSlide}`).classList.remove("hidden");
+    }
+
+    function chooseCat(el) {
+      document.getElementById("catResponse").classList.remove("hidden");
+    }
+  </script>
+</body>
+</html>
